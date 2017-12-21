@@ -1,0 +1,107 @@
+page {
+  /* background-color: #e5e5e5; */
+  height: 100%;
+}
+
+.details-video-box {
+  width: 100%;
+  height: 450rpx;
+}
+.details-video-box video {
+  width: 100%;
+  height: 450rpx;
+}
+
+.scroll-view {
+  width: 100%;
+  height: calc(100% - 450rpx - 110rpx);
+}
+.scroll-view .wedding-info {
+  height: 160rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  background-color: #fff;
+}
+.scroll-view .wedding-info .wedding-title {
+  font-size: 14px;
+}
+.scroll-view .wedding-info .user-info {
+  margin-top: 40rpx;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  padding-bottom: 40rpx;
+}
+.scroll-view .wedding-info .user-info image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  float: left;
+  background-color: #000;
+}
+.scroll-view .wedding-info .user-info text {
+  float: left;
+  vertical-align: middle;
+  font-size: 14px;
+  margin-left: 20rpx;
+}
+
+.scroll-view .details-danmu-list {
+  margin-top: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.scroll-view .details-danmu-list .list-item{
+  margin-top: 20rpx;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.scroll-view .details-danmu-list .list-item .item-logo {
+  float: left;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.scroll-view .details-danmu-list .list-item .item-logo image {
+  width: 100%;
+  height: 100%;
+}
+.scroll-view .details-danmu-list .list-item .item-desc {
+  float: left;
+  margin-left: 20rpx;
+}
+.scroll-view .details-danmu-list .list-item .item-desc .user-name {
+  font-size: 12px;
+  margin-bottom: 20rpx;
+}
+.scroll-view .details-danmu-list .list-item .item-desc .danmu-content {
+  font-size: 12px;
+}
+.scroll-view .details-danmu-list text {
+  display: block;
+}
+
+.details-send-box {
+  width: 100%;
+  height: 80rpx;
+  padding: 10rpx;
+  border: 1px solid #e5e5e5;
+}
+.details-send-box input {
+  display: inline-block;
+  width: 500rpx;
+  height: 80rpx;
+  padding-left: 10rpx;
+  margin-right: 20rpx;
+  border-radius: 5rpx;
+  background-color: #e5e5e5;
+}
+.details-send-box button {
+  display: inline-block;
+  height: 80rpx;
+  width: 200rpx;
+  font-size: 14px;
+  background-color: #fff;
+  border: none;
+}

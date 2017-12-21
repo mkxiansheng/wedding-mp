@@ -1,0 +1,13 @@
+<view class="user">
+  <view class='user-info'>
+    <image src='../../public/user-logo.jpeg'></image>
+    <view class='user-desc'>
+      <text>mk先生</text>
+      <text>10000001</text>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class='menu-list-item'>功能列表一</view>
+  </view>
+</view>

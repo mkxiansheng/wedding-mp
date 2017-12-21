@@ -1,13 +1,33 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="section">
+
+<swiper class="banner" indicator-dots="true"
+  autoplay="true" interval="3000" duration="300">
+    <block wx:for="{{bannerList}}"> 
+    <swiper-item>
+      <navigator url="/pages/details/details?id={{item.id}}">    
+        <image src="{{item.img}}" class="slide-image" width="355" height="150"/>
+      </navigator>
+    </swiper-item>
     </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+</swiper>
+
+<!--  wedding list -->
+<scroll-view class="list" scroll-y>
+  <block wx:for="{{weddinglist}}"> 
+  <navigator url="/pages/details/details?id={{item.id}}" hover-class="navigator-hover">
+    <view class="list-item">
+      <image src="{{item.img}}"></image>
+      <view class='list-item-footer'>
+        <view class='list-item-footer-top'>
+          <text class='name'>{{item.name}}</text>
+          <text class='time'>{{item.time}}</text>
+        </view>
+        <text class='list-item-footer-bottom'>{{item.locat}}</text>
+      </view>      
+    </view>
+  </navigator>
+  </block>
+</scroll-view>
+  
 </view>
