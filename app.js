@@ -10,6 +10,29 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          console.log(res.code);
+          wx.request({
+            url: 'http://localhost/login',
+            method: 'POST',
+            data: {
+              code: res.code
+            },
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            success: function (res) {
+              let _res = res.data;
+              if (_res.code === 0) {
+                console.log(_res.openid);               
+              }
+              console.log(_res);
+            },
+            fail: function (err) {
+              console.log(err);
+            } 
+          })
+        }
       }
     })
     // 获取用户信息

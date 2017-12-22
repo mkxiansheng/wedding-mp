@@ -1,9 +1,9 @@
 <view class="user">
   <view class='user-info'>
-    <image src='../../public/user-logo.jpeg'></image>
+    <image src='{{userInfo.avatarUrl}}'></image>
     <view class='user-desc'>
-      <text>mk先生</text>
-      <text>10000001</text>
+      <text>{{userInfo.nickName}}</text>
+      <!-- <text>10000001</text> -->
     </view>
   </view>
 

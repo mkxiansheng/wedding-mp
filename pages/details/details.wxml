@@ -1,73 +1,30 @@
 <!-- 视频区域 -->
 <view class="details-video-box">
-  <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+  <video id="myVideo" src="{{video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
   </view>
 
 <!-- 滚动区域 -->
 <!-- 用户信息和弹幕列表 -->
 <scroll-view class="scroll-view" scroll-y style="width: 100%">
   <view class='wedding-info'>
-    <text class='wedding-title'>汪峰和章子怡的婚礼</text>
+    <text class='wedding-title'>{{name}}</text>
     <view class='user-info'>
-      <image src='../../public/user-logo.jpeg'></image>
-      <text>mk先生</text>
+      <image src='{{author.avatar}}'></image>
+      <text>{{author.name}}</text>
     </view>
   </view>
   <view class='details-danmu-list'>
-    <view class='list-item'>
-      <view class='item-logo'>
-        <image src='../../public/user-logo.jpeg'></image>      
+    <block wx:for="{{danmuList}}"> 
+      <view class='list-item'>
+        <view class='item-logo'>
+          <image src='{{item.img}}'></image>      
+        </view>
+        <view class='item-desc'>
+          <text class='user-name'>{{item.name}}</text>
+          <text class='danmu-content'>{{item.text}}</text>        
+        </view>
       </view>
-      <view class='item-desc'>
-        <text class='user-name'>name</text>
-        <text class='danmu-content'>test content</text>        
-      </view>
-    </view>  
-    <view class='list-item'>
-      <view class='item-logo'>
-        <image src='../../public/user-logo.jpeg'></image>      
-      </view>
-      <view class='item-desc'>
-        <text class='user-name'>name</text>
-        <text class='danmu-content'>test content</text>        
-      </view>
-    </view>
-    <view class='list-item'>
-      <view class='item-logo'>
-        <image src='../../public/user-logo.jpeg'></image>      
-      </view>
-      <view class='item-desc'>
-        <text class='user-name'>name</text>
-        <text class='danmu-content'>test content</text>        
-      </view>
-    </view> 
-    <view class='list-item'>
-      <view class='item-logo'>
-        <image src='../../public/user-logo.jpeg'></image>      
-      </view>
-      <view class='item-desc'>
-        <text class='user-name'>name</text>
-        <text class='danmu-content'>test content</text>        
-      </view>
-    </view> 
-    <view class='list-item'>
-      <view class='item-logo'>
-        <image src='../../public/user-logo.jpeg'></image>      
-      </view>
-      <view class='item-desc'>
-        <text class='user-name'>name</text>
-        <text class='danmu-content'>test content</text>        
-      </view>
-    </view> 
-    <view class='list-item'>
-      <view class='item-logo'>
-        <image src='../../public/user-logo.jpeg'></image>      
-      </view>
-      <view class='item-desc'>
-        <text class='user-name'>name</text>
-        <text class='danmu-content'>test content</text>        
-      </view>
-    </view>      
+    </block>     
   </view>
 </scroll-view>
 

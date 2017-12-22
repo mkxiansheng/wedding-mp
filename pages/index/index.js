@@ -23,82 +23,42 @@ Page({
 
     // 获取banner
     wx.request({
-      url: 'test.php', //仅为示例，并非真实的接口地址
-      data: {},
+      url: 'http://localhost/bannerList',
+      method: 'GET',
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res.data)
+        let _res = res.data;
+        if (_res.code === 0) {
+          me.setData({
+            bannerList: _res.Json
+          })
+        }
       },
       fail: function (res) {
         console.log('in banner err');
-        me.setData({
-          bannerList: [{
-            id: '00000001',
-            img: '../../public/banner.jpg'
-          }, {
-            id: '00000002',
-            img: '../../public/newlover.png'
-          }, {
-            id: '00000003',
-            img: '../../public/banner.jpg'
-          }]
-        })
       }
     })
 
     // 获取婚礼列表
     wx.request({
-      url: 'test.php', //仅为示例，并非真实的接口地址
+      url: 'http://localhost/weddingList', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        let _res = res.data;
+        if (_res.code === 0) {
+          me.setData({
+            weddinglist: _res.Json
+          })
+        }
         console.log(res.data)
       },
       fail: function (res) {
         console.log('in err');
-        me.setData({
-          weddinglist: [{
-            id: '00000001',
-            name: '汪峰和章子怡的婚礼',
-            time: '12：30：55',
-            locat: '天上人间',
-            img: '../../public/newlover.png'
-          },{
-            id: '00000002',
-            name: '55开和uu的婚礼',
-            time: '12：30：55',
-            locat: '山水假日',
-            img: '../../public/newlover.png'
-          },{
-            id: '00000003',
-            name: '宋仲基和宋慧乔的婚礼',
-            time: '12：30：55',
-            locat: '维亚纳',
-            img: '../../public/newlover.png'
-          },{
-            id: '00000004',
-            name: '赵又廷和高圆圆的婚礼',
-            time: '12：30：55',
-            locat: '帝豪大酒店',
-            img: '../../public/newlover.png'
-          },{
-            id: '00000005',
-            name: '张杰和谢娜的婚礼',
-            time: '12：30：55',
-            locat: '尊爵大酒店',
-            img: '../../public/newlover.png'
-          },{
-            id: '00000006',
-            name: '杜海涛和沈梦辰的婚礼',
-            time: '12：30：55',
-            locat: '香格里拉大酒店',
-            img: '../../public/newlover.png'
-          }]
-        })
       }
     })
 

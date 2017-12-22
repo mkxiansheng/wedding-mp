@@ -16,17 +16,10 @@ Page({
   },
   inputValue: '',
   data: {
-    danmuList: [
-      {
-        text: '第 1s 出现的弹幕',
-        color: '#ff0000',
-        time: 1
-      },
-      {
-        text: '第 3s 出现的弹幕',
-        color: '#ff00ff',
-        time: 3
-      }]
+    video: '',
+    name: '',
+    author: {},
+    danmuList: []
   },
   bindInputBlur: function (e) {
     this.inputValue = e.detail.value
@@ -40,5 +33,50 @@ Page({
 
   onLoad: function (e) {
     console.log(e.id);
+    const me = this;
+    // 获取视频,作者
+    wx.request({
+      url: 'http://localhost/weddingDesc' + '?id=' + e.id,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        let _res = res.data;
+        if (_res.code === 0) {
+          me.setData({
+            video: _res.Json.video
+          });
+          me.setData({
+            name: _res.Json.name
+          });
+          me.setData({
+            author: _res.Json.user
+          });
+        }
+      },
+      fail: function (res) {
+        console.log('in banner err');
+      }
+    })
+    // 获取弹幕
+    wx.request({
+      url: 'http://localhost/weddingDescDanMu' + '?id=' + e.id,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        let _res = res.data;
+        if (_res.code === 0) {
+          me.setData({
+            danmuList: _res.Json
+          });
+        }
+      },
+      fail: function (res) {
+        console.log('in banner err');
+      }
+    })
   }
 })
