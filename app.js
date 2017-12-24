@@ -13,7 +13,7 @@ App({
         if (res.code) {
           console.log(res.code);
           wx.request({
-            url: 'http://localhost/login',
+            url: 'http://localhost:4000/login',
             method: 'POST',
             data: {
               code: res.code
@@ -55,8 +55,23 @@ App({
         }
       }
     })
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.systemInfo = res;
+        // 判断环境
+        if (res.brand === 'devtools') {
+          this.globalData.url = 'http://localhost:4000';
+        } else {
+          this.globalData.url = 'http://***/';          
+        }
+      }
+    })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    systemInfo: null,
+    url: null
   }
+
 })

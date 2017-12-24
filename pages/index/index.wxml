@@ -6,7 +6,7 @@
     <block wx:for="{{bannerList}}"> 
     <swiper-item>
       <navigator url="/pages/details/details?id={{item.id}}">    
-        <image src="{{item.img}}" class="slide-image" width="355" height="150"/>
+        <image src="{{url}}/{{item.img}}" class="slide-image" width="355" height="150"/>
       </navigator>
     </swiper-item>
     </block>
@@ -17,7 +17,7 @@
   <block wx:for="{{weddinglist}}"> 
   <navigator url="/pages/details/details?id={{item.id}}" hover-class="navigator-hover">
     <view class="list-item">
-      <image src="{{item.img}}"></image>
+      <image src="{{url}}/{{item.img}}"></image>
       <view class='list-item-footer'>
         <view class='list-item-footer-top'>
           <text class='name'>{{item.name}}</text>

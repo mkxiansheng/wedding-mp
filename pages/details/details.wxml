@@ -1,6 +1,6 @@
 <!-- 视频区域 -->
 <view class="details-video-box">
-  <video id="myVideo" src="{{video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+  <video id="myVideo" src="{{url}}/{{video}}" danmu-list="{{danmuList}}" bindtimeupdate="videoTime" enable-danmu danmu-btn controls></video>
   </view>
 
 <!-- 滚动区域 -->
@@ -9,7 +9,7 @@
   <view class='wedding-info'>
     <text class='wedding-title'>{{name}}</text>
     <view class='user-info'>
-      <image src='{{author.avatar}}'></image>
+      <image src='{{url}}/{{author.avatar}}'></image>
       <text>{{author.name}}</text>
     </view>
   </view>
@@ -17,7 +17,7 @@
     <block wx:for="{{danmuList}}"> 
       <view class='list-item'>
         <view class='item-logo'>
-          <image src='{{item.img}}'></image>      
+          <image src='{{url}}/{{item.img}}'></image>      
         </view>
         <view class='item-desc'>
           <text class='user-name'>{{item.name}}</text>
@@ -30,6 +30,6 @@
 
 <!-- 发送弹幕 -->
 <view class="details-send-box">
-  <input bindblur="danmu-input"/>
-  <button bindtap="danmu-send">发送</button>
+  <input bindblur="danmuInput"/>
+  <button bindtap="danmuSend">发送</button>
 </view>

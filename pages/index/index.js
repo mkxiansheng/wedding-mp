@@ -9,7 +9,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     weddinglist: {},
-    bannerList: {}
+    bannerList: {},
+    url: null
   },
   //事件处理函数
   bindViewTap: function() {
@@ -20,10 +21,14 @@ Page({
   onLoad: function () {
 
     const me = this;
+    const url = app.globalData.url;
 
+    me.setData({
+      url : url
+    });
     // 获取banner
     wx.request({
-      url: 'http://localhost/bannerList',
+      url: url + '/bannerList',
       method: 'GET',
       header: {
         'content-type': 'application/json'
@@ -43,7 +48,7 @@ Page({
 
     // 获取婚礼列表
     wx.request({
-      url: 'http://localhost/weddingList', //仅为示例，并非真实的接口地址
+      url: url + '/weddingList', //仅为示例，并非真实的接口地址
       data: {},
       header: {
         'content-type': 'application/json' // 默认值
