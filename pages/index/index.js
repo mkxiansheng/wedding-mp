@@ -3,6 +3,24 @@
 const app = getApp()
 
 Page({
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '弹幕婚礼',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+        console.log('share success');
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log('share err');
+      }
+    }
+  },
   data: {
     motto: 'Hello World',
     userInfo: {},
@@ -56,6 +74,21 @@ Page({
       success: function (res) {
         let _res = res.data;
         if (_res.code === 0) {
+          let list = null;
+          let i = 0;
+          let len = _res.Json.length;
+          let time = new Date();
+          let nowTime = time.getTime();
+
+          for (i;i<len;i++) {
+            let _time = _res.Json[i].time;
+            let t = _time - nowTime;
+            let _d = Math.floor(t / (1000 * 60 * 60 * 24));
+            let _h = Math.floor(t / (1000 * 60 * 60) % 24);
+            let _m = Math.floor(t / (1000 * 60) % 60);
+            let ret = _d + '天' + _h + '时' + _m + '分';
+            _res.Json[i].time = ret;
+          }
           me.setData({
             weddinglist: _res.Json
           })

@@ -19,8 +19,8 @@ Page({
       console.log(res.target)
     }
     return {
-      title: '自定义转发标题',
-      path: '/pages/details?id=**',
+      title: this.data.name,
+      path: '/pages/details/details?id=' + this.data.id,
       success: function (res) {
         // 转发成功
         console.log('share success');
@@ -45,8 +45,6 @@ Page({
     time: null
   },
   videoTime: function (e) {
-    console.log(e.timeStamp);
-    console.log(11);
     this.setData({
       time: e.timeStamp
     });
@@ -87,7 +85,7 @@ Page({
           }
         },
         fail: function (res) {
-          console.log('in banner err');
+          console.log('in post danmu err');
         }
       })
     }
@@ -125,7 +123,7 @@ Page({
         }
       },
       fail: function (res) {
-        console.log('in banner err');
+        console.log('in get video err');
       }
     })
     // 获取弹幕
@@ -144,7 +142,7 @@ Page({
         }
       },
       fail: function (res) {
-        console.log('in banner err');
+        console.log('in get danmu err');
       }
     })
   }

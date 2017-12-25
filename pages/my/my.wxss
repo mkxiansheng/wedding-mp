@@ -7,7 +7,7 @@
 .user-info {
   width: 100%;
   height: 300rpx;
-  background-color: #e5e5e5;
+  background-color: #fff;
   text-align: center;
 }
 .user-info image {
