@@ -9,24 +9,5 @@
     "navigationBarBackgroundColor": "#fa4f5f",
     "navigationBarTitleText": "婚礼弹幕",
     "navigationBarTextStyle":"white"
-  },
-  "tabBar": { 
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "public/tab-bar/index.png",
-        "selectedIconPath": "public/tab-bar/index-on.png",        
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/my/my",   
-        "iconPath": "public/tab-bar/account.png",
-        "selectedIconPath": "public/tab-bar/account-on.png",        
-        "text": "我的"
-      }
-    ],
-    "color": "#dbdbdb",
-    "selectedColor": "#fa4f5f",
-    "backgroundColor": "#fff"
   }
 }

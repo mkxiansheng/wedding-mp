@@ -8,6 +8,6 @@
   </view>
 
   <view class="menu-list">
-    <view class='menu-list-item'>功能列表一</view>
+     <view class='menu-list-item'>待开发</view> 
   </view>
 </view>
