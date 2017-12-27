@@ -6,6 +6,19 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.systemInfo = res;
+        // 判断环境
+        if (res.brand === 'devtools') {
+          this.globalData.url = 'http://localhost:4100';       
+        } else {
+          this.globalData.url = 'https://weddingapi.doufuf.com';
+        }
+      }
+    })
+
     // 登录
     wx.login({
       success: res => {
@@ -13,7 +26,7 @@ App({
         if (res.code) {
           console.log(res.code);
           wx.request({
-            url: 'http://localhost:4000/login',
+            url: this.globalData.url + '/login',
             method: 'POST',
             data: {
               code: res.code
@@ -52,18 +65,6 @@ App({
               }
             }
           })
-        }
-      }
-    })
-    // 获取系统信息
-    wx.getSystemInfo({
-      success: res => {
-        this.globalData.systemInfo = res;
-        // 判断环境
-        if (res.brand === 'devtools') {
-          this.globalData.url = 'http://localhost:4000';
-        } else {
-          this.globalData.url = 'http://***/';          
         }
       }
     })
